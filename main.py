@@ -71,7 +71,17 @@ class Student(Persons):
         print(f"Student {name} registered")
         
     def show_details(self):
-        pass
+        roll_no = input("roll no :-")
+        for i in data['students']:
+            if i['roll_no'] == roll_no:
+                grades = i['grades']
+                avg = sum(grades.values())/len(grades) if grades else 0
+                
+                print(f"\n Name : {s['name']}")
+                print(f" Roll no : {s['roll_no']}")
+                print(f" Grades : {grades}")
+                print(f" Average : {avg:.1f}")
+                return
     
     def add_grades(self):
         roll_no = input("Tell the roll number :-")
