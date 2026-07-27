@@ -128,7 +128,15 @@ class Teacher(Persons):
         print(f"Teacher {name} registered")
         
     def show_details(self):
-        pass
+        emp_id  = input("Employee ID:-")
+        for i in data['teachers']:
+            if i['emp_id'] == emp_id:
+        
+                print(f"\n Name : {i['name']}")
+                print(f" Subject : {i['Subject']}")
+                print(f" Employee ID : {i['emp_id']}")
+                return
+        print("Teacher not found.")
 
 student = Student()
 teacher = Teacher()
@@ -151,3 +159,9 @@ elif choise == 2:
     
 elif choise == 3:
     student.add_grades()
+    
+elif choise == 4:
+    student.show_details()
+    
+elif choise == 5:
+    teacher.show_details()
