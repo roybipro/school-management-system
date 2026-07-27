@@ -5,7 +5,9 @@
             "age": 34,
             "email": "e@e.com",
             "roll_no": "12",
-            "grades": {}
+            "grades": {
+                "bangla": 13.0
+            }
         }
     ],
     "teachers": []

@@ -37,7 +37,9 @@ class Persons(ABC):
             return True
         else:
             return False
-    
+
+# Student regstration section
+ 
 class Student(Persons):
     
     def get_roles(self):
@@ -70,6 +72,53 @@ class Student(Persons):
         
     def show_details(self):
         pass
+    
+    def add_grades(self):
+        roll_no = input("Tell the roll number :-")
+        subject = input("Subject :-") 
+        marks = float(input("Marks :-"))
+        
+        for i in data['students']:
+            if i["roll_no"] == roll_no:
+                i['grades'] [subject] = marks
+                save()
+                print("Grade added successfully")
+                return
+        print("Student not found")
+                
+    
+# Teacher regstration section
+class Teacher(Persons):
+    def get_roles(self):
+        return "Teacher"
+    
+    def register(self):
+        name = input("Tell your name :-")
+        age = int(input("Tell your age :-"))
+        email = input("Tell your Email :-")
+        subject = input("subject :-")
+        emp_id = input("Tell your emp_id number :-")
+        
+        if not Persons.validate_email(email):
+                print("invalied Email")
+                return
+            
+        for i in data ['teachers']:
+            if i['emp_id'] == emp_id:
+                print("Teacher already exists")
+                return
+        data['teachers'].append({
+            "name" : name,
+            "age" : age,
+            "email" : email,
+            "Subject" : subject,
+            "emp_id" : emp_id,
+        })
+        save()
+        print(f"Teacher {name} registered")
+        
+    def show_details(self):
+        pass
 
 student = Student()
 
@@ -84,3 +133,9 @@ choise = int(input("Please tell your choise :-"))
 if choise == 1:
     student.registermethod()
     
+elif choise == 2:
+    teacher.register()
+    
+    
+elif choise == 3:
+    student.add_grades()
