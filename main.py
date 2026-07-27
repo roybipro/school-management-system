@@ -37,7 +37,9 @@ class Persons(ABC):
             return True
         else:
             return False
-    
+
+# Student regstration section
+ 
 class Student(Persons):
     
     def get_roles(self):
@@ -71,7 +73,21 @@ class Student(Persons):
     def show_details(self):
         pass
     
+    def add_grades(self):
+        roll_no = input("Tell the roll number :-")
+        subject = input("Subject :-") 
+        marks = float(input("Marks :-"))
+        
+        for i in data['students']:
+            if i["roll_no"] == roll_no:
+                i['grades'] [subject] = marks
+                save()
+                print("Grade added successfully")
+                return
+        print("Student not found")
+                
     
+# Teacher regstration section
 class Teacher(Persons):
     def get_roles(self):
         return "Teacher"
@@ -120,3 +136,8 @@ if choise == 1:
     
 elif choise == 2:
     teacher.register()
+    teacher.register()
+    
+    
+elif choise == 3:
+    student.add_grades()
