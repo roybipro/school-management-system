@@ -25,7 +25,7 @@ class Persons(ABC):
         pass
     
     @abstractmethod
-    def registermethod(self):
+    def register(self):
         pass
     
     @abstractmethod
@@ -43,7 +43,7 @@ class Student(Persons):
     def get_roles(self):
         return "student"
     
-    def registermethod(self):
+    def register(self):
         name = input("Tell your name :-")
         age = int(input("Tell your age :-"))
         email = input("Tell your Email :-")
@@ -70,8 +70,42 @@ class Student(Persons):
         
     def show_details(self):
         pass
+    
+    
+class Teacher(Persons):
+    def get_roles(self):
+        return "Teacher"
+    
+    def register(self):
+        name = input("Tell your name :-")
+        age = int(input("Tell your age :-"))
+        email = input("Tell your Email :-")
+        subject = input("subject :-")
+        emp_id = input("Tell your emp_id number :-")
+        
+        if not Persons.validate_email(email):
+                print("invalied Email")
+                return
+            
+        for i in data ['teachers']:
+            if i['emp_id'] == emp_id:
+                print("Teacher already exists")
+                return
+        data['teachers'].append({
+            "name" : name,
+            "age" : age,
+            "email" : email,
+            "Subject" : subject,
+            "emp_id" : emp_id,
+        })
+        save()
+        print(f"Teacher {name} registered")
+        
+    def show_details(self):
+        pass
 
 student = Student()
+teacher = Teacher()
 
 print("press 1 to register a student")
 print("press 2 to register a Teacher")
@@ -82,5 +116,7 @@ print("press 5 to show teacher detail")
 choise = int(input("Please tell your choise :-"))
 
 if choise == 1:
-    student.registermethod()
+    student.register()
     
+elif choise == 2:
+    teacher.register()

@@ -8,5 +8,13 @@
             "grades": {}
         }
     ],
-    "teachers": []
+    "teachers": [
+        {
+            "name": "hana",
+            "age": 24,
+            "email": "g@.com",
+            "Subject": "cs",
+            "emp_id": "133"
+        }
+    ]
 }
