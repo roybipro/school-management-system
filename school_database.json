@@ -1,0 +1,12 @@
+{
+    "students": [
+        {
+            "name": "bi",
+            "age": 34,
+            "email": "e@e.com",
+            "roll_no": "12",
+            "grades": {}
+        }
+    ],
+    "teachers": []
+}
